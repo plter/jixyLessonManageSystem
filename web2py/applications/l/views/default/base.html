@@ -1,0 +1,33 @@
+{{extend 'layout.html'}}
+
+<a href="{{=URL('l','default','index')}}" class="btn">所有课程</a>
+<a href="{{=URL('l','default','online_this_week')}}" class="btn">本周上线课程</a>
+<a href="{{=URL('l','default','online_next_week')}}" class="btn">下周上线课程</a>
+<a href="{{=URL('l','default','under_line_lesson')}}" class="btn">未上线课程</a>
+<a href="{{=URL('l','default','this_week')}}" class="btn">本周完成课程</a>
+<a href="{{=URL('l','default','add_new')}}?redirect={{=request.url}}" class="btn">添加新课程</a>
+
+<hr width="100%">
+<div>共{{=len(lessons)}}条数据</div>
+<table width="100%">
+    <tr style="text-align: left">
+        <th>序号</th>
+        <th>课程名称</th>
+        <th>课程讲师</th>
+        <th>上线日期</th>
+        <th>创建日期</th>
+        <th>编辑</th>
+    </tr>
+{{index = 1
+for l in lessons:}}
+    <tr>
+        <td>{{=index}}</td>
+        <td>{{=l.l_name}}</td>
+        <td>{{=l.l_author}}</td>
+        <td>{{=l.l_online_date}}</td>
+        <td>{{=l.l_date}}</td>
+        <td><a href="{{=URL('l','default','edit_lesson')}}?l_id={{=l.id}}&redirect={{=request.url}}" class="btn">编辑</a></td>
+    </tr>
+{{index+=1
+pass}}
+</table>

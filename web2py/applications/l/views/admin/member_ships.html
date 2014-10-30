@@ -1,0 +1,20 @@
+{{extend "admin/base.html"}}
+
+<table width="100%">
+    <tr>
+        <th>关系ID</th>
+        <th>用户ID</th>
+        <th>组ID</th>
+        <th>编辑</th>
+    </tr>
+
+{{for ms in member_ship_data:}}
+    <tr>
+        <td>{{=ms.id}}</td>
+        <td>{{=ms.user_id}}</td>
+        <td>{{=ms.group_id}}</td>
+        <td><a href="member_ship_edit?msid={{=ms.id}}" class="btn">编辑</a></td>
+    </tr>
+{{pass}}
+
+</table>

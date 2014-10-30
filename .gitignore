@@ -1,0 +1,10 @@
+.idea
+databases
+languages
+sessions
+uploads
+errors
+cache
+*.pyc
+*.pid
+*.w2p
